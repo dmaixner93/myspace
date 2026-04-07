@@ -12,7 +12,7 @@ import Header from '@/components/Header';
 
 export default function Profile() {
   return (
-    <div className="bg-white mx-auto w-full sm:w-200">
+    <div className="bg-white mx-auto w-full sm:w-200 overflow-x-hidden">
 
     <Header />
 
