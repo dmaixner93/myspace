@@ -300,26 +300,13 @@ Footer
 ========================================
 */
 footer {
-  display: grid;
-  grid-template-rows: 16px 39px;
   background-color: #e5e5e5;
   padding-top: 10px;
-  height: 65px;
 }
 
 footer a {
   text-decoration: underline;
   font-weight: normal;
-  font-size: 8pt;
-}
-
-footer ul {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 footer li:after {

@@ -94,10 +94,10 @@ export default function Profile() {
 
     </div>
 
-    <footer className="footer">
+    <footer className="footer grid grid-rows-2 h-16">
 
       <nav>
-        <ul>
+        <ul className="flex flex-wrap">
           <li><a href="#">About</a></li>
           <li><a href="#">FAQ</a></li>
           <li><a href="#">Terms</a></li>
