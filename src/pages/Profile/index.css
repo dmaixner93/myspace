@@ -269,33 +269,6 @@ Friend Space
 
 /*
 ========================================
-Comment Wall
-========================================
-*/
-.comment-wall .main-section-header {
-  margin-bottom: 3px;
-}
-
-.comment-wall .main-section-h2 {
-  margin-bottom: 0;
-}
-
-#comment-counter {
-  margin-top: 0;
-  margin-left: 15px;
-  margin-bottom: 3px;
-}
-
-.comment-wall th {
-  background-color: rgb(255, 153, 51);
-}
-
-.comment-wall td {
-  background-color: rgb(249, 214, 180);
-}
-
-/*
-========================================
 Footer
 ========================================
 */

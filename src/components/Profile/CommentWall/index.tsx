@@ -1,93 +1,53 @@
-import gramProfilePic from "./imgs/gram.jpg";
-import amandaProfilePic from "./imgs/amanda.jpg";
-import slackerProfilePic from "./imgs/slacker.jpg";
-import ericProfilePic from "./imgs/eric.jpg";
-import nnennaProfilePic from "./imgs/nnenna.jpg";
-import grantProfilePic from "./imgs/grant.jpg";
-import jamesProfilePic from "./imgs/james.jpg";
+import { useState, useEffect } from "react";
+import api from '@/api/axios';
+import "./index.css";
 
-const comments = [
-  {
-    user: "Gram",
-    profilePic: gramProfilePic,
-    datePosted: "4/22/2006 6:54 PM",
-    content:
-      "Dude, Appetite for Destruction Rocks, same with Alice Cooper and KISS",
-  },
-  {
-    user: "Amanda Lepore",
-    profilePic: amandaProfilePic,
-    datePosted: "4/22/2006 6:51 PM",
-    content: "tom=new money. ;D congrats darling",
-  },
-  {
-    user: "SLACKER",
-    profilePic: slackerProfilePic,
-    datePosted: "4/22/2006 12:37 PM",
-    content:
-      "dont listen to those girls, they don't know what they're talking about!! I LOVE YOUR DISPLAY PIC, seeing it makes my day a little better!!!",
-  },
-  {
-    user: "Brian",
-    profilePic: ericProfilePic,
-    datePosted: "4/22/2006 12:13 PM",
-    content:
-      "Myspace prevented another potential Columbine.You must be very proud!",
-  },
-  {
-    user: "Nnenna",
-    profilePic: nnennaProfilePic,
-    datePosted: "4/22/2006 12:08 PM",
-    content:
-      "Whats up tom...it would be really cool if poets and spoken word artists had a way to display their talent. Its really hard to find spoken word in the music section.",
-  },
-  {
-    user: "Woodrow Wilson",
-    profilePic: grantProfilePic,
-    datePosted: "4/22/2006 12:06 PM",
-    content:
-      "Despite all the controversy, myspace proved to be useful in saving people today. Good press Mr. Anderson!",
-  },
-  {
-    user: "Klara",
-    profilePic: "pictures/missing.jpg",
-    datePosted: "4/22/2006 12:06 PM",
-    content:
-      "hi",
-  },
-  {
-    user: "Vicky",
-    profilePic: "pictures/missing.jpg",
-    datePosted: "4/22/2006 12:05 PM",
-    content:
-      "Just wanna say tks to you :p Everything seems so wonderful, i can change my skin myself :p",
-  },
-  {
-    user: "Camy",
-    profilePic: "pictures/missing.jpg",
-    datePosted: "4/22/2006 12:04 PM",
-    content: "come on!!! A*teen and radiohead together on the same list ???",
-  },
-  {
-    user: "James Dean",
-    profilePic: jamesProfilePic,
-    datePosted: "4/22/2006 12:04 PM",
-    content:
-      "Kundera and Orwell are great.. Do you know Arthur Koestler? Have you read Hommage to Catalonia?",
-  },
-];
+type Comment = {
+  user: string;
+  profilePic: string;
+  datePosted: string;
+  content: string;
+}
 
 export default function CommentWall() {
+  const [isAddComment, setIsAddComment] = useState(false);
+  const [newComment, setNewComment] = useState("");
+  const [comments, setComments] = useState<[] | Comment[]>([]);
+  const [userName, setUserName] = useState('Guest');
+
+  const handlePostComment = () => {
+    setComments([
+      ...comments,
+      {
+        user: userName,
+        profilePic: "pictures/missing.jpg",
+        datePosted: new Date().toLocaleString(),
+        content: newComment,
+      },
+    ]);
+    setUserName('Guest');
+    setNewComment('');
+    setIsAddComment(false);
+  };
+
+  useEffect(() => {
+    async function getComments() {
+      const res = await api.get('/comments');
+      setComments(res.data);
+    }
+    getComments();
+  }, []);
+
   return (
     <section className="comment-wall">
       <header className="main-section-header mb-1">
         <h2 className="main-section-h2">Tom's Friends Comments</h2>
       </header>
 
-      <p id="comment-counter">
+      <p id="comment-counter" className="ml-3.5 mb-1">
         <b>
-          Displaying <span className="focus-highlight">{comments.length}</span> of{" "}
-          <span className="focus-highlight">780610</span> comments (
+          Displaying <span className="focus-highlight">{comments.length}</span>{" "}
+          of <span className="focus-highlight">780610</span> comments (
           <a href="#">View/Edit All Comments</a>)
         </b>
       </p>
@@ -101,23 +61,55 @@ export default function CommentWall() {
                   <figcaption className="mb-2.5">
                     <a href="#">{comment.user}</a>
                   </figcaption>
-                  <img className="mx-auto" src={comment.profilePic} />
+                  <img className="mx-auto" src={`src/assets/imgs/profilePics/${comment.profilePic}`} />
                 </figure>
               </th>
               <td className="pb-0.5 pl-0.5 align-top">
                 <h3 className="text-xs mb-3">{comment.datePosted}</h3>
-                <p>
-                  {comment.content}
-                </p>
+                <p>{comment.content}</p>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <p className="text-right mr-2.5 mb-1">
-        <a href="#">Add Comment</a>
-      </p>
+      <div className="text-right mr-2.5 mb-1">
+        {isAddComment ? (
+          <div className="flex gap-1.5 justify-end">
+            <div className="flex flex-col grow gap-1">
+              <input
+                id="user-name"
+                type="text"
+                className="border border-zinc-300"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <textarea
+                id="add-comment"
+                className="border border-zinc-300 h-20 resize-none"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+              />
+            </div>
+            <button className="font-bold" onClick={handlePostComment}>
+              Post
+            </button>
+            <button
+              className="font-bold"
+              onClick={() => setIsAddComment(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <button
+            className="ml-auto text-right font-bold cursor-pointer hover:underline"
+            onClick={() => setIsAddComment(true)}
+          >
+            Add Comment
+          </button>
+        )}
+      </div>
     </section>
   );
 }
