@@ -1,0 +1,15 @@
+.comment-wall th {
+  background-color: rgb(255, 153, 51);
+}
+
+.comment-wall td {
+  background-color: rgb(249, 214, 180);
+}
+
+button {
+  color: #003399;
+}
+
+button:hover {
+  color: #cc0000;
+}
