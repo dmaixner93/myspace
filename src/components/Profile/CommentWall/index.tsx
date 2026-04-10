@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import api from '@/api/axios';
 import "./index.css";
+import dayjs from 'dayjs';
 
 type Comment = {
   user: string;
@@ -15,20 +16,22 @@ export default function CommentWall() {
   const [comments, setComments] = useState<[] | Comment[]>([]);
   const [userName, setUserName] = useState('Guest');
 
-  const handlePostComment = () => {
-    setComments([
-      ...comments,
-      {
-        user: userName,
-        profilePic: "pictures/missing.jpg",
-        datePosted: new Date().toLocaleString(),
-        content: newComment,
-      },
-    ]);
+  const handlePostComment = useCallback(async () => {
+    await api.post('/comments', {
+      user: userName,
+      profilePic: 'missing.jpg',
+      datePosted: new Date(),
+      content: newComment
+    });
+
+    const res = await api.get('/comments');
+    setComments(res.data);
+
+    // Reset UI
     setUserName('Guest');
     setNewComment('');
     setIsAddComment(false);
-  };
+  }, [setComments, setUserName, setNewComment, setIsAddComment]);
 
   useEffect(() => {
     async function getComments() {
@@ -61,11 +64,11 @@ export default function CommentWall() {
                   <figcaption className="mb-2.5">
                     <a href="#">{comment.user}</a>
                   </figcaption>
-                  <img className="mx-auto" src={`src/assets/imgs/profilePics/${comment.profilePic}`} />
+                  <img className="mx-auto w-22.5" src={`src/assets/imgs/profilePics/${comment.profilePic}`} />
                 </figure>
               </th>
               <td className="pb-0.5 pl-0.5 align-top">
-                <h3 className="text-xs mb-3">{comment.datePosted}</h3>
+                <h3 className="text-xs mb-3">{dayjs(comment.datePosted).format('MM-DD-YYYY h:mm A')}</h3>
                 <p>{comment.content}</p>
               </td>
             </tr>
