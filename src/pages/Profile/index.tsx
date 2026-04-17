@@ -75,13 +75,13 @@ export default function Profile() {
         </section>
 
         <section className="mt-3 ml-3 mb-4 space-y-4">
-          <p><b>Tom's Latest Blog Entry</b> [<a href="#">Subscribe to this Blog</a>]</p>
-          <p>MySpace Concert & Parties -Georgia, Orlando, Miami! (<a href="#">view more</a>) </p>
-          <p>In Stores Today - MySpace Records Vol. 1 ! (<a href="#">view more</a>) </p>
-          <p>MySpace Records - get more photos for your profile! (<a href="#">view more</a>) </p>
-          <p>October 29th - MySpace 2-Year Anniversary Concert! (<a href="#">view more</a>) </p>
-          <p>NIN, QOTSA, Acoustic and Punk Tours (!) (<a href="#">view more</a>)</p>
-          <p>[<a href="#">View All Blog Entries</a>]</p>
+          <p><b>Tom's Latest Blog Entry</b> [<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">Subscribe to this Blog</a>]</p>
+          <p>MySpace Concert & Parties -Georgia, Orlando, Miami! (<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">view more</a>) </p>
+          <p>In Stores Today - MySpace Records Vol. 1 ! (<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">view more</a>) </p>
+          <p>MySpace Records - get more photos for your profile! (<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">view more</a>) </p>
+          <p>October 29th - MySpace 2-Year Anniversary Concert! (<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">view more</a>) </p>
+          <p>NIN, QOTSA, Acoustic and Punk Tours (!) (<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">view more</a>)</p>
+          <p>[<a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">View All Blog Entries</a>]</p>
         </section>
 
         <Blurbs />

@@ -1,15 +1,15 @@
 export default function Blurbs() {
   return (
     <section className="blurbs">
-      <header className="main-section-header">
-        <h2 className="main-section-h2 ml-5">Tom's Blurbs</h2>
+      <header className="bg-orange-200 py-0.5 mb-2">
+        <h2 className="text-orange-500 ml-5">Tom's Blurbs</h2>
       </header>
 
-      <h3 className="text-xs ml-3.5">About me:</h3>
+      <h3 className="text-xs ml-3.5 text-orange-500">About me:</h3>
       <p className="m-3.5 mt-0 mr-2.5">
         I'm here to help you with <b>MySpace</b>. Send me a message if you're
         confused by anything.{" "}
-        <span className="info">
+        <span className="text-green-700 font-bold">
           Before asking me a question, please check the <a href="#">FAQ</a> to
           see if your question has already been answered.
         </span>
@@ -38,7 +38,7 @@ export default function Blurbs() {
         show 40 people. So you wont be able to see the friends on my list.
       </p>
 
-      <h3 className="text-xs ml-3.5">Who I'd like to meet:</h3>
+      <h3 className="text-xs ml-3.5 text-orange-500">Who I'd like to meet:</h3>
       <p className="m-3.5 mt-0 mr-2.5">
         I'd like to meet people who educate, inspire or entertain me... I have a
         few close friends I've known all my life. I'd like to make more.{" "}

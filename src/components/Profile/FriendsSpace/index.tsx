@@ -45,8 +45,8 @@ const friends = [
 export default function FriendSpace() {
   return (
     <section className="friends">
-      <header className="main-section-header mb-1.5">
-        <h2 className="main-section-h2 ml-5">Tom's Friend Space</h2>
+      <header className="py-0.5 bg-orange-200 mb-1.5">
+        <h2 className="text-orange-500 ml-5">Tom's Friend Space</h2>
       </header>
 
       <p className="ml-3.5">
@@ -59,7 +59,7 @@ export default function FriendSpace() {
         {friends.map((info, index) => (
           <figure key={index}>
             <figcaption className="text-center text-wrap w-20">
-              <a href="#">
+              <a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">
                 {info.name}
               </a>
             </figcaption>
@@ -69,7 +69,7 @@ export default function FriendSpace() {
       </div>
 
       <p className="friends-list-link mt-1.5 mr-2 mb-7">
-        <a href="#">View All of Tom's Friends</a>
+        <a className="text-blue-800 font-bold hover:underline visited:text-red-800" href="#">View All of Tom's Friends</a>
       </p>
     </section>
   );

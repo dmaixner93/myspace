@@ -14,24 +14,6 @@ body {
   margin: 0;
 }
 
-a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:link {
-  color: #003399;
-}
-
-a:visited {
-  color: #003399;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #cc0000;
-}
-
 h2 {
   font-weight: bold;
 }
@@ -196,31 +178,6 @@ User Network
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-}
-
-/*
-========================================
-Blurbs
-========================================
-*/
-.main-section-header {
-  background-color: #ffcc99;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin-bottom: 8px;
-}
-
-.main-section-h2 {
-  color: #FF6600;
-}
-
-.blurbs h3 {
-  color: #FF6600;
-}
-
-.info {
-  color: green;
-  font-weight: bold;
 }
 
 /*

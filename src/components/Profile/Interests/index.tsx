@@ -12,10 +12,10 @@ export default function Interests() {
 
         <tbody>
           <tr>
-            <th className="sidebar-table-header" scope="row">
+            <th className="align-top p-0.5 bg-blue-200 text-sky-800 text-left" scope="row">
               General
             </th>
-            <td className="sidebar-table-data w-44">
+            <td className="bg-blue-100 p-0.5 w-44">
               <p>
                 Internet, Movies, Reading, Dancing, Karaoke, Baseball, Language,
                 Culture, History of Communism, Philosophy, Singing/Writing
@@ -26,10 +26,10 @@ export default function Interests() {
           </tr>
 
           <tr>
-            <th className="sidebar-table-header" scope="row">
+            <th className="align-top p-0.5 bg-blue-200 text-sky-800 text-left" scope="row">
               Music
             </th>
-            <td className="sidebar-table-data w-44">
+            <td className="bg-blue-100 p-0.5 w-44">
               <p>
                 <b>Bands</b>: Beatles, Superdrag, Jackson 5, Weezer, Sex
                 Pistols, The Carpenters, Vain, Radiohead, Teenage Fanclub,
@@ -68,10 +68,10 @@ export default function Interests() {
           </tr>
 
           <tr>
-            <th className="sidebar-table-header" scope="row">
+            <th className="align-top p-0.5 bg-blue-200 text-sky-800 text-left" scope="row">
               Movies
             </th>
-            <td className="sidebar-table-data w-44">
+            <td className="bg-blue-100 p-0.5 w-44">
               <p>
                 <b>Films</b>: Lawrence of Arabia, Ben Hur, Patton, Spartacus,
                 Gandhi, The 10 Commandments, Apocalypse Now, Beauty & The Beast
@@ -92,10 +92,10 @@ export default function Interests() {
           </tr>
 
           <tr>
-            <th className="sidebar-table-header" scope="row">
+            <th className="align-top p-0.5 bg-blue-200 text-sky-800 text-left" scope="row">
               Television
             </th>
-            <td className="sidebar-table-data w-44">
+            <td className="bg-blue-100 p-0.5 w-44">
               <p>
                 Tuned out. <em>Except for SF Giants.</em> I rented Band of
                 Brothers and liked that.
