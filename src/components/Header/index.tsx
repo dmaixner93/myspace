@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <header className="main-header flex flex-col justify-center h-36">
@@ -44,7 +46,7 @@ export default function Header() {
       <nav className="navbar overflow-x-scroll pl-3 sm:pl-0">
         <ul className="flex mx-auto">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <a href="#">Browse</a>

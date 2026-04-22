@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Table from "@/components/Profile/CommentWall/Table";
 import useComments from "@/hooks/useComments";
 import Paginator from '@/components/Profile/CommentWall/Paginator';
+import Header from '@/components/Header';
 
 export default function Comments() {
   const { comments, totalComments, page, setPage } = useComments();
@@ -16,8 +17,8 @@ export default function Comments() {
   }, [setPage]);
 
   return (
-    <main className="comments-page bg-white px-7 mx-auto w-full sm:w-200 overflow-x-hidden">
-      <h1 className="main-header text-base pl-3">Comments</h1>
+    <main className="comments-page bg-white space-y-4 px-7 mx-auto w-full sm:w-200 overflow-x-hidden">
+      <Header />
       <Table comments={comments} />
       <Paginator
         currentPage={page}

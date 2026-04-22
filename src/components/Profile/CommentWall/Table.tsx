@@ -3,7 +3,7 @@ import type { Comment } from './index.d';
 
 export default function Table({ comments }: { comments: [] | Comment[] }) {
   return (
-    <table className="mb-1">
+    <table className="mb-1 w-full">
       <tbody>
         {comments.map((comment, index) => (
           <tr key={index}>
@@ -18,7 +18,7 @@ export default function Table({ comments }: { comments: [] | Comment[] }) {
                 />
               </figure>
             </th>
-            <td className="pb-0.5 pl-0.5 align-top bg-orange-200">
+            <td className="p-1 pb-0.5 pl-0.5 align-top bg-orange-200">
               <h3 className="text-xs mb-3">
                 {dayjs(comment.datePosted).format('MM-DD-YYYY h:mm A')}
               </h3>
